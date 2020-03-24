@@ -20,13 +20,14 @@ $handle-enabled: #3f51b5;
   box-sizing: border-box;
 }
 
+
 .App {
   display: flex;
   justify-content: center;
 
   & > div {
-      @include Spacing;
-      @include Shadow;
+    @include Spacing;
+    @include Shadow;
   }
   *, *:before, *:after {
     @include boxSizing;
@@ -56,138 +57,139 @@ $handle-enabled: #3f51b5;
     align-items: center;
   }
 }
-
 .textfield {
-    &__group {
-      position: relative;
-      margin-bottom: 45px;
-      height: 56px;
-      input {
-        font-size:18px;
-        padding: 10px 0px 10px 12px;
-        box-sizing: border-box;
-        display:block;
-        width:280px;
-        border: none;
-        border-radius: 4px 4px 0px 0px;
-        border-bottom:1px solid #757575;
-      }
-      label {
-        color:#999;
-        font-size:18px;
-        font-weight:normal;
-        position:absolute;
-        pointer-events:none;
-        left:5px;
-        top:10px;
-        transition:0.2s ease all;
-        -moz-transition:0.2s ease all;
-        -webkit-transition:0.2s ease all;
-      }
-      input:focus {
-        outline:none;
-      }
-      input:focus ~ label, input:valid ~ label 		{
-        top:-20px;
-        font-size:14px;
-        color: $MainTheme;
-      }
-      &__bar 	{
-        position:relative;
-        display:block;
-        width:280px;
-      }
+  &__group {
+    position: relative;
+    margin-bottom: 45px;
+    height: 56px;
+    input {
+      font-size:18px;
+      padding: 10px 0px 10px 12px;
+      box-sizing: border-box;
+      display:block;
+      width:280px;
+      border: none;
+      border-radius: 4px 4px 0px 0px;
+      border-bottom:1px solid #757575;
+    }
+    label {
+      color:#999;
+      font-size:18px;
+      font-weight:normal;
+      position:absolute;
+      pointer-events:none;
+      left:5px;
+      top:10px;
+      transition:0.2s ease all;
+      -moz-transition:0.2s ease all;
+      -webkit-transition:0.2s ease all;
+    }
+    input:focus {
+      outline:none;
+    }
+    input:focus ~ label, input:valid ~ label 		{
+      top:-20px;
+      font-size:14px;
+      color: $MainTheme;
+    }
+    &__bar 	{
+      position:relative;
+      display:block;
+      width:280px;
+    }
 
-      &__bar:before, &__bar:after 	{
-        content:'';
-        height:2px;
-        width:0;
-        bottom:1px;
-        position:absolute;
-        background:#5264AE;
-        transition:0.2s ease all;
-        -moz-transition:0.2s ease all;
-        -webkit-transition:0.2s ease all;
-      }
-      &__bar:before {
-        left:50%;
-      }
-      &__bar:after {
-        right:50%;
-      }
+    &__bar:before, &__bar:after 	{
+      content:'';
+      height:2px;
+      width:0;
+      bottom:1px;
+      position:absolute;
+      background: $MainTheme;
+      transition:0.2s ease all;
+      -moz-transition:0.2s ease all;
+      -webkit-transition:0.2s ease all;
+    }
+    &__bar:before {
+      left:50%;
+    }
+    &__bar:after {
+      right:50%;
+    }
 
-      input:focus ~ &__bar:before, input:focus ~ &__bar:after {
-        width:50%;
-      }
-      input[type="text"][disabled] {
-        background-color: white;
-      }
+    input:focus ~ &__bar:before, input:focus ~ &__bar:after {
+      width:50%;
+    }
+    input[type="text"][disabled] {
+      background-color: white;
+    }
   }
 }
 
 .switch {
-    display: inline-block;
-    position: relative;
-    margin: 0 0 10px;
-    font-size: 16px;
-    line-height: 24px;
+  display: inline-block;
+  position: relative;
+  margin: 0 0 10px;
+  font-size: 16px;
+  line-height: 24px;
 
-    &__input {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 36px;
-        height: 20px;
-        opacity: 0;
-        z-index: 0;
-    }
-    &__label {
-        display: block;
-        padding: 0 0 0 44px;
-        cursor: pointer;
+  &__input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 36px;
+    height: 20px;
+    opacity: 0;
+    z-index: 0;
+  }
+  &__label {
+    display: block;
+    padding: 0 0 0 44px;
+    cursor: pointer;
 
-        &:before {
-            content: '';
-            position: absolute;
-            top: 5px;
-            left: 0;
-            width: 36px;
-            height: 14px;
-            background-color: $trail-disabled;
-            border-radius: 14px;
-            z-index: 1;
-            transition: background-color 0.28s cubic-bezier(.4, 0, .2, 1);
-        }
-
-        &:after {
-            content: '';
-            position: absolute;
-            top: 2px;
-            left: 0;
-            width: 20px;
-            height: 20px;
-            background-color: $handle-disabled;
-            border-radius: 14px;
-            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14),0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
-            z-index: 2;
-            transition: all 0.28s cubic-bezier(.4, 0, .2, 1);
-            transition-property: left, background-color;
-        }
-    }
-    &__input:checked + &__label {
-        &:before {
-            background-color: $trail-enabled;
-        }
-
-        &:after {
-            left: 16px;
-            background-color: $handle-enabled;
-        }
+    &:before {
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: 0;
+      width: 36px;
+      height: 14px;
+      background-color: $trail-disabled;
+      border-radius: 14px;
+      z-index: 1;
+      transition: background-color 0.28s cubic-bezier(.4, 0, .2, 1);
     }
 
-    &__input:disabled + &__label {
-      opacity: 0.7;
+    &:after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      background-color: $handle-disabled;
+      border-radius: 14px;
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14),0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+      z-index: 2;
+      transition: all 0.28s cubic-bezier(.4, 0, .2, 1);
+      transition-property: left, background-color;
     }
+  }
+  &__input:checked + &__label {
+    &:before {
+      background-color: $trail-enabled;
+    }
+
+    &:after {
+      left: 16px;
+      background-color: $handle-enabled;
+    }
+  }
+  &__input:focus + &__label {
+    border-bottom: 1px solid $MainTheme;
+  }
+  &__input:disabled + &__label {
+    opacity: 0.7;
+  }
 }
 
 
@@ -214,109 +216,110 @@ $handle-enabled: #3f51b5;
     cursor: pointer;
 
     &:before {
-       content: '';
-       position: absolute;
-       top: 4px;
-       left: 0;
-       width: 16px;
-       height: 16px;
-       background-color: transparent;
-       border: 2px solid #999;
-       border-radius: 2px;
-       z-index: 1;
-       transition: all .20s ease-in-out;
-       transition-property: background-color, border-color;
-     }
-
-   &:after {
-       content: '';
-       position: absolute;
-       top: 5px;
-       left: 5px;
-       width: 6px;
-       height: 12px;
-       border-bottom: 2px solid transparent;
-       border-right: 2px solid transparent;
-       transform: rotate(45deg);
-       z-index: 2;
-       transition: border-color .20s ease-in-out;
-     }
-  }
-  &__input:checked + &__label {
-       &:before {
-           background-color: $MainTheme;
-           border-color: $MainTheme;
-       }
-       &:after {
-           border-color: #fff;
-       }
-   }
-   &__input:disabled + &__label {
-     opacity: 0.7;
-   }
-}
-
-.radio {
-    display: inline-block;
-    position: relative;
-    margin: 0 0 10px;
-    font-size: 16px;
-    line-height: 24px;
-
-  &__input {
+      content: '';
       position: absolute;
       top: 4px;
       left: 0;
-      width: 36px;
-      height: 20px;
-      opacity: 0;
-      z-index: 0;
-  }
-
-  &__label {
-      display: block;
-      padding: 0 0 0 24px;
-      cursor: pointer;
-
-      &:before {
-          content: '';
-          position: absolute;
-          top: 4px;
-          left: 0;
-          width: 16px;
-          height: 16px;
-          background-color: transparent;
-          border: 2px solid #999;
-          border-radius: 14px;
-          z-index: 1;
-          transition: border-color 0.28s ease-in-out;
-      }
-
-      &:after {
-          content: '';
-          position: absolute;
-          top: 8px;
-          left: 4px;
-          width: 8px;
-          height: 8px;
-          background-color: $MainTheme;
-          border-radius: 50%;
-          z-index: 2;
-          transform: scale(0, 0);
-          transition: transform 0.28s ease-in-out;
-      }
-  }
-
-  &__input:checked + &__label {
-      &:before {
-          border-color: $MainTheme;
-      }
-
-      &:after {
-          transform: scale(1, 1);
-      }
+      width: 16px;
+      height: 16px;
+      background-color: transparent;
+      border: 2px solid #999;
+      border-radius: 2px;
+      z-index: 1;
+      transition: all .20s ease-in-out;
+      transition-property: background-color, border-color;
     }
 
+    &:after {
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      width: 6px;
+      height: 12px;
+      border-bottom: 2px solid transparent;
+      border-right: 2px solid transparent;
+      transform: rotate(45deg);
+      z-index: 2;
+      transition: border-color .20s ease-in-out;
+    }
+  }
+  &__input:checked + &__label {
+    &:before {
+      background-color: $MainTheme;
+      border-color: $MainTheme;
+    }
+    &:after {
+      border-color: #fff;
+    }
+  }
+  &__input:focus + &__label {
+    border-bottom: 1px solid $MainTheme;
+  }
+  &__input:disabled + &__label {
+    opacity: 0.7;
+  }
+}
+.radio {
+  display: inline-block;
+  position: relative;
+  margin: 0 0 10px;
+  font-size: 16px;
+  line-height: 24px;
+
+  &__input {
+    position: absolute;
+    top: 4px;
+    left: 0;
+    width: 36px;
+    height: 20px;
+    opacity: 0;
+    z-index: 0;
+  }
+  &__label {
+    display: block;
+    padding: 0 0 0 24px;
+    cursor: pointer;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: 0;
+      width: 16px;
+      height: 16px;
+      background-color: transparent;
+      border: 2px solid #999;
+      border-radius: 14px;
+      z-index: 1;
+      transition: border-color 0.28s ease-in-out;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 4px;
+      width: 8px;
+      height: 8px;
+      background-color: $MainTheme;
+      border-radius: 50%;
+      z-index: 2;
+      transform: scale(0, 0);
+      transition: transform 0.28s ease-in-out;
+    }
+  }
+  &__input:checked + &__label {
+    &:before {
+      border-color: $MainTheme;
+    }
+
+    &:after {
+      transform: scale(1, 1);
+    }
+  }
+  &__input:focus + &__label {
+    border-bottom: 1px solid $MainTheme;
+  }
   &__input:disabled + &__label {
     opacity: 0.7;
   }
